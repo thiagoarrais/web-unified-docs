@@ -1,0 +1,21 @@
+### Sidebar menu reloads on engine-scoped pages ((#sidebar-menu-reloads-on-engine-scoped-pages))
+
+| Change      | Status | Vault edition | Affected version | Fixed version |
+| ----------- | ------ | ------------- | ---------------- | ------------- |
+| Known issue | Open   | All           | 2.0.0            | No            |
+
+#### Issue
+
+On some engine-scoped UI routes, the Vault sidebar can briefly render the wrong
+menu or reload during navigation before settling on the correct section.
+
+This is most noticeable on pages such as **Operational tools -> Custom
+messages** and secret-detail routes. The issue is limited to transient sidebar
+flicker during page transitions and does not affect the underlying operation.
+
+#### Recommendation
+
+There is no direct workaround for this sidebar behavior.
+
+Users can continue with the affected workflow after the page finishes loading
+and the sidebar settles into the correct state.
