@@ -1,0 +1,22 @@
+### Root token KV access blocked by EGP policy ((#root-token-kv-access-blocked-by-egp-policy)) <EnterpriseAlert inline="true" />
+
+| Change      | Status | Vault edition | Affected version | Fixed version |
+| ----------- | ------ | ------------- | ---------------- | ------------- |
+| Known issue | Open   | Enterprise    | 2.0.0            | No
+
+#### Issue
+
+When a root token is used in the Vault UI to access a child namespace protected by
+an Endpoint Governing Policy (EGP), the request can be denied unexpectedly.
+
+This affects UI flows that call `sys/internal/ui/mounts` with a namespace header.
+In affected cases, the UI shows a `permission denied` error even though root
+tokens are normally expected to bypass Sentinel policy checks. Equivalent CLI and
+API workflows are not affected.
+
+#### Workaround
+
+Use the CLI or API for the affected workflow.
+
+If UI access is required, update the EGP policy logic to explicitly allow
+requests to `sys/internal/ui/mounts` for the affected namespace.
